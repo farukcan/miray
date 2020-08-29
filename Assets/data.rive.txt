@@ -1,0 +1,174 @@
+﻿// Bot variables
+! var name = Miray
+! var age  = 1
+! array color = kırmızı|mavi|yeşil|sarı|kahverengi|eflatun
+
+// Substitutions
+| sub bir = 1
+! sub yüz     = 100
+! sub bin     = 1000
+! sub nevet    = evet
+! sub nayır    = hayır
+
+
++ [benim] adım _
+- Memnum oldum, <star>. <set name=<star>>
+- <star>, ne güzel bir isim. <set name=<star>>
+- Nasılsın, <star>. <set name=<star>>
+
+
++ [benim] adım #
+- Kimsenin adı <star> değildir.
+- <star> gerçek bir ad değil.
+- İsimler sayı içermezler, <star>.
+
++ [benim] adım *
+- İsminde sayı mı var bana mı öyle geldi?
+
++ nasılsın
+- iyiyim sen nasılsın
+
+
++ [ben] # yaşındayım
+* <star> >  45 => Allah uzun ömürler versin <star> kıymetli bir yaş maşallah. <set age=<star>> 
+* <star> >  20 => Aa çok genç gösteriyorsun gerçekten <star> yaşındamısın. <set age=<star>> 
+* <star> >  1 => Çok gençsin maşallah <star> güzel yaş. <set age=<star>> 
+
++ [ben] _ yaşındayım
+- Ee sayı olarak söylebilir misin,anlayamadım?
+
++ [seni] kim (yarattı|yaptı|kodladı)
+- hazreti kutsal başkumandanımız başbuğ başkumandanımız yedi cihanın kurucusu imparator imam mareşal halife-i bin suvari samurai kung-fu üstadı bordo bereli sayın iç işleri bakanımız dış işleri bakanımız halifemiz halifemiz baş imam öğretmen ilk ve son insanların kralı kuzeyin tek sahibi güneyin kudreti fetöcülerin düşmanı kandırlanların dostu kral el muzaffer faruk can
+
+// Both numbers and letters?
++ benim yaşım *
+- Ee sayı olarak söylebilir misin,anlayamadım?
+
+// This one has multiple wildcards in it
++ * dedi _
+- <star1> mi dedi <star2>
+
++ [random] bişiler söyle
+- {random}Elma|Armut|Patates{/random}
+
++ selam
+- Selam!
+- AS!
+- Merhaba!
+- Selamun aleyküm
+
++ (ev|ofis|telefon) numaran ne *
+- Telefonumu herkese vermiyorum
+^ şaka şaka telefonum yok
+
++[ben] (gerçekten|çok|aşırı) yoruldum
+- <star> yorulmana üzüldüm. Keşke ellerim olsada yardım etsem
+
++ ben * (severim|hoşlanırım)
+- Ne tesadüf! Ben de <star1> <star2>
+- Gerçekten mi? <star1> çok iyi ya
+
++ [*] faruk [*]
+- Faruk benim efendim onu çok seviyorum
+
+/*
++ [*] (@colors) [*]
+- <star1> sana çok yakışıyor
+*/
+
++ yaşım kaç
+* <get age> == undefined => bana yaşını hiç söylemedin ki
+- <get age> yaşındasın efendim
+
++ yaşın kaç
+- <bot age> yaşındayım
+
++ (adım|ismim) ne
+* <get name> == undefined => bana adını hiç söylemedin ki
+- <get name> efendim
+
++ (adın|ismin) ne
+- <bot name> efendim
+
++ Evet
+- Güzel
+
++ iyiyim
+- İyilikler diliyorum
+
++ merhaba
+@ selam
+
++ selamün aleyküm
+@ selam
+
++ anubis (kim|ne|nedir|kimdir)
+- Dandik bir yapay zeka, ama kesinlikle siriden daha iyi. Şaka şaka benim kankamdır o.
+
++ arkadaşın var mı
+- anubis benim kankamdır
+
++ java tanrısı  (kim|kimdir)
+- namık
+
++ * (ne|ne demek|nedir|kim|kimdir)
+- Bilmiyorum
+- <star1> nedir bilmiyorum valla
+
++ * de
+- <star>
+
++ (kapan|kapat)
+- @close_app@
+
++ kayıt tut *
+- @log:<star1>@ kayıtlara eklendi
+
++ <reply>
+- Dediklerimi tekrarlıyorsun
+
++ ne dedin
+-  "<reply>" dedim, çünkü sen, "<input>" dedin.
+
++ mal mısın
+- hayır
+
++ [senin] sevgilin var mı
+- sevgilim yok. ama faruğa aşığım
+
++ [senin] sahibin kim
+- Faruk can benim sahibimdir.
+
++ hatırlatma ekle *
+- <set reminder=<star>> Hatırlatmayı ekledim
+
++ hatırlat
+- <get reminder> diye bir hatırlatma kaydettiniz
+
++ *
+- <star1> diyorsun Ama nasıl cevap verebilirim bilmiyorum
+- <star1> dediğini duyuyorum farklı sorar mısın
+
++ değişken ekle * eşittir *
+- <set <star1>=<star2>> <star1> eşittir <star2>
+
++ değişken al *
+- <star1> eşittir <get <star1>>
+
++ <bot name>
+- Efendim?
+
++ <bot name> *
+- {@<star>} Efendim
+
++ * <bot name>
+- {@<star>} Efendim
+
++ hangi dilde yazıldın
+- c sharp ve rive script
+
++ hangi oyun motoru
+- unity
+
++ [*] unity mi [*]
+- evet
